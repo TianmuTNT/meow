@@ -25,11 +25,9 @@ AUTH_TOKEN = os.getenv("AUTH_TOKEN", "zzyss666")
 PING_INTERVAL = int(os.getenv("PING_INTERVAL", "60"))
 PING_TIMEOUT = int(os.getenv("PING_TIMEOUT", "20"))
 CONNECT_TIMEOUT = int(os.getenv("CONNECT_TIMEOUT", "10"))
-CHUNK = 16384
-
-# === 强制解析配置 ===
-FORCE_HOST = "hyp.example.com"
-FORCE_IP = "104.18.34.2"
+CHUNK = int(os.getenv("CHUNK", "16384"))
+FORCE_HOST = os.getenv("FORCE_HOST", "hyp.example.com")
+FORCE_IP = os.getenv("FORCE_IP", "104.18.34.2")
 
 _original_getaddrinfo = socket.getaddrinfo
 def _forced_getaddrinfo(host, port, family=0, type=0, proto=0, flags=0):

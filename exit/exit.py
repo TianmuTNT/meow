@@ -26,8 +26,7 @@ AUTH_TOKEN = os.getenv("AUTH_TOKEN", "zzyss666")
 PING_INTERVAL = int(os.getenv("PING_INTERVAL", "60"))
 PING_TIMEOUT = int(os.getenv("PING_TIMEOUT", "20"))
 TCP_CONNECT_TIMEOUT = int(os.getenv("TCP_CONNECT_TIMEOUT", "10"))
-
-CHUNK = 16384
+CHUNK = int(os.getenv("CHUNK", "16384"))
 
 async def ws_to_tcp(ws: WebSocketServerProtocol, writer: asyncio.StreamWriter):
     try:
