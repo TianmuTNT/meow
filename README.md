@@ -44,7 +44,7 @@
 在入口与出口机器上分别执行：
 
 ```bash
-pip install -U "websockets>=12,<14" python-dotenv
+pip install -r requirements.txt
 ````
 
 ---
@@ -126,7 +126,7 @@ pip install -U "websockets>=12,<14" python-dotenv
 
 * `CHUNK`：建议 `16384`（≈单个 TLS record），常能减少抖动；必要时测试 `32768`。
 * 心跳：`PING_INTERVAL=30~60`、`PING_TIMEOUT=20~25`，避免过于频繁的心跳插队。
-* 优选：使用对目前线路最有益的Cloudflare IP，例如落地机在美国，入口机在中国香港，则可以选用美国或香港IP，千万不可以绕路。
+* 优选：使用对目前线路最有益的 Cloudflare IP，例如落地机在美国，入口机在中国香港，则可以选用美国或香港 IP，千万不可以绕路。
 * 安全：务必使用 **强 `AUTH_TOKEN`**，并限制出入口机的防火墙策略。
 
 ---
