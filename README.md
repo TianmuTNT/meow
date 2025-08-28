@@ -1,6 +1,6 @@
 # MEOW — Minecraft Encapsulation Over WebSocket
 
-把 **Minecraft** 专有 TCP 流量 **封装** 到 **WebSocket(HTTP/HTTPS)**，在出口再 **解封装** 为原生 MC 流量，从而可经由 **Cloudflare Web CDN** 转发。
+把 **Minecraft** 专有 TCP 流量 **封装** 为 **WebSocket**，在出口再 **解封装** 为原生 MC 流量，从而可经由 **Cloudflare Web CDN** 转发。
 
 > **有趣的事实：MEOW 也可被称为 MEOW Encapsulation Over WebSocket**  
 > 核心思路：MC ↔ WS 隧道 ↔ MC（中间段走 Cloudflare）
@@ -126,7 +126,7 @@ pip install -U "websockets>=12,<14" python-dotenv
 
 * `CHUNK`：建议 `16384`（≈单个 TLS record），常能减少抖动；必要时测试 `32768`。
 * 心跳：`PING_INTERVAL=30~60`、`PING_TIMEOUT=20~25`，避免过于频繁的心跳插队。
-* 优选：使用对目前线路最有益的IP，例如落地机在美国，入口机在中国香港，则可以选用美国或香港IP，千万不可以绕路。
+* 优选：使用对目前线路最有益的Cloudflare IP，例如落地机在美国，入口机在中国香港，则可以选用美国或香港IP，千万不可以绕路。
 * 安全：务必使用 **强 `AUTH_TOKEN`**，并限制出入口机的防火墙策略。
 
 ---
